@@ -14,7 +14,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-import {LitElement, html} from 'lit-element/lit-element.js';
+import {LitElement, html, css} from 'lit-element/lit-element.js';
 import {classMap} from 'lit-html/directives/class-map.js';
 import {style} from './mwc-card-css.js';
 
@@ -25,18 +25,15 @@ export class Card extends LitElement {
     };
   }
 
+  static styles = style;
+
   constructor() {
     super();
     this.stroke = false;
   }
 
-  renderStyle() {
-    return style;
-  }
-
   render() {
     return html`
-      ${this.renderStyle()}
       <div class="mdc-card ${classMap({'mdc-card--stroked': this.stroke})}">
         <slot></slot>
       </div>`;
